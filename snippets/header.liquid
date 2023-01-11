@@ -1,0 +1,35 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark logo">
+  <div class="container-xxl">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse " id="navbarNavDropdown">
+        <ul class="navbar-nav d-flex align-items-center">
+          <!-- FOR LOOP START--> 
+          <a class="navbar-brand" href="#">
+            <img src="{{ "logo.png" | asset_url }}" alt="Logo" width="50" class="d-inline-block align-text-top">
+          </a>
+          {% for link in linklists.custom-menu.links %}
+            {% if link.title == "COLLECTIONS" %}
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                CATALOGUE
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                 <!--COLLECTIONS FOR LOOP --> 
+                {% for collection in collections %}
+                  <li><a class="dropdown-item" href="{{ collection.url  }}">{{ collection.title }}</a></li>
+                {% endfor %}
+              </ul>
+            </li>
+            {% else %}
+            <li class="nav-item">
+              <a class="nav-link" href="{{ link.url }}">{{ link.title }}</a>
+            </li>
+            {% endif %}
+      {% endfor %}
+      </ul>
+    </div>
+  </div>
+</nav>
+
