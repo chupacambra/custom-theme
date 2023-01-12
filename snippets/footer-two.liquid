@@ -1,0 +1,77 @@
+<section class="footer-section-border mb-5" id="{{ section.id }}">
+  <div class="container-fluid px-lg-5 justify-content-center  ">
+    <div class="g-5 row px-2 px-md-5">
+      <!-- COL-4 -->
+      <div class="col-12 col-md-6 col-lg-4 px-5 footer-column-padding footer-column-border ">
+
+        <h3>{{ section.settings.heading }}</h3>
+        <div class="input-group mt-4">
+          <input
+            type="text"
+            style="font-size: 18px;"
+            class="form-control border-secondary"
+            placeholder="Enter Your Email"
+            aria-label="Recipient's username with two button addons">
+          <button class="footer-btn mt-0 px-5 py-3" type="button">SUBMIT</button>
+        </div>
+        <p class="mt-5 footer-p pb-0 ">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex, natus praesentium sint veritatis labore tempora et necessitatibus eveniet quod alias. Facilis fugit minima repudiandae quae? Quidem, inventore aspernatur iste dicta assumenda eius necessitatibus voluptatem ad suscipit, distinctio eaque consectetur laborum!</p>
+      </div>
+      <!-- COL-8 -->
+      <div class="col-12 col-md-6 col-lg-8 d-flex justify-content-start justify-content-md-around footer-column-padding henlo1">
+        <div class="row d-flex py-5 py-md-0">
+          <div class="col-12 col-sm-6 col-lg-4 mb-3 px-5">
+            <div class="d-flex justify-content-start">
+              <ul class="footer-list">
+                <li>All Products</li>
+                <li>CONTOUR</li>
+                <li>CLEAR</li>
+                <li>CLEAR Assessment</li>
+                <li>Reviews & Results</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6 col-lg-4 mb-3 px-5">
+            <div class="d-flex justify-content-start ">
+              <ul class="footer-list">
+                <li>All Products</li>
+                <li>CONTOUR</li>
+                <li>CLEAR</li>
+                <li>CLEAR Assessment</li>
+                <li>Reviews & Results</li>
+              </ul>
+            </div>
+          </div>
+          <div class="d-flex col-12 col-sm-6 col-lg-4 px-5 py-0 mb-5 mb-sm-0 align-items-end align-items-lg-start">
+            <div class="d-flex justify-content-start">
+              <ul class="footer-list">
+                <li>All Products</li>
+                <li>CONTOUR</li>
+                <li>CLEAR</li>
+                <li>
+                  {% form 'currency' %}
+                    {{ form | currency_selector: class: 'px-4 py-2 justify-content-center' }}
+                  {% endform %}
+                </li>
+              </ul>
+            </div>
+
+          </div>
+          <div class="col-12 col-sm-6 col-lg-4 px-5 d-flex justify-content-start align-items-end">
+            <div class="footer-icon me-4 grow ">
+              {%- render 'icon-instagram' -%}
+            </div>
+            <div class="footer-icon me-4 grow">
+              {%- render 'icon-facebook' -%}
+            </div>
+            <div class="footer-icon me-2 grow">
+              {%- render 'icon-tiktok' -%}
+            </div>
+            <div class="footer-icon me-4 grow ">
+              {%- render 'icon-youtube' -%}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
