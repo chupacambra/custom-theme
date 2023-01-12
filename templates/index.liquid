@@ -2,20 +2,9 @@
   <div class="row g-3">
     <h1 class="mt-5 mb-2">{{ collections.jewellery.title }}</h1>
     {% for product in collections.jewellery.products %}
-      <div class="col-3">
-        <div class="card henlo">
-          <img class="img-fluid" src="{{ product.featured_image | img_url: "2000x"}}">
-          <div class="card-body">
-            <h5 class="card-title text-center">{{ product.title }}</h5>
-            <p class="card-text">{{ product.description }}</p>
-            <p class="card-text">{{ product.price | money }}</p>
-            <h2>{{ index }}</h2>
-            <a href="{{ product.url }}" class="btn btn-dark">Go to Product</a>
-          </div>
-        </div>
-      </div>
+   {% render 'product-item', product: product %}
     {% endfor %}
 
   </div>
 
-</div>
+</div> 

@@ -1,0 +1,51 @@
+<div class="container-xxl">
+  <div class="row my-5 justify-content-center">
+      <div class="col-8">
+        <h2>{{ article.title }}</h2>
+        <p class="lead mb-5">{{ article.excerpt  }}...</p>
+          <img class="img-fluid rounded mb-2" src="{{ article.image | img_url: "2000x"}}">
+        <p class="mb-5">{{ article.published_at | date: '%B %d, %Y' }}</p>
+
+            <p>{{ article.content  }}</p>
+
+            <h4 class="text-primary">Leave us your comment</h4>
+        
+            {% form 'new_comment', article %}
+              {{ form.errors | default_errors }}
+                <div class="col-12 col-lg-8">
+                  <div class="row ">
+                    <div class="col-6 mb-2">
+                      <label for="name">Name</label><br>
+                      <input type="text" name="comment[author]" value="{{ form.author }}">
+                    </div>
+                  
+                    <div class="col-6 mb-2">
+                      <label for="email">Email</label><br>
+                      <input width="100%" type="email" name="comment[email]" value="{{ form.email }}">
+                    </div>
+                  
+                    <div class="comment col-12 mb-2">
+                      <label for="comment">Comment</label><br>
+                      <textarea rows="4" name="comment[body]">{{ form.body }}</textarea>
+                    </div><br>
+                  
+                    <div class="submit my-3 col-6">
+                      <input class="btn btn-primary " type="submit" value="Post Comment">
+                    </div>
+                  </div>             
+                </div>
+             
+            {% endform %}
+            <div class="row mt-5 mb-0">
+              {% for post in article.comments %}
+                <p class="fs-3">
+                  {{ post.author }} <span class="fs-5"> says:</span>
+                </p>
+                <p class="lead">{{ post.content }}</p>
+              {% endfor %}
+            </div>
+          </div>
+      </div>
+  </div>
+</div>
+
