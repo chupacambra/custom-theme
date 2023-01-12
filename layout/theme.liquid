@@ -1,13 +1,16 @@
 <html>
-<head>
-  {{ content_for_header  }}
-  {{ "style.css" | asset_url | stylesheet_tag }}
-  {{ "bootstrap.css" | asset_url | stylesheet_tag }}
-</head>
-<body>
-  {% render "header" %}
-  {{ content_for_layout }}
-  {{ "scripts.js" | asset_url | script_tag }}
-  {{ "bootstrap.js" | asset_url | script_tag }}
+  <head>
+    {{ content_for_header }}
+    {{ "style.css" | asset_url | stylesheet_tag }}
+    {{ "bootstrap.css" | asset_url | stylesheet_tag }}
+    {{ 'footer-two.css' | asset_url | stylesheet_tag }}
+
+  </head>
+  <body>
+    {% render "header" %}
+    {{ content_for_layout }}
+
+    {{ "scripts.js" | asset_url | script_tag }}
+    {{ "bootstrap.js" | asset_url | script_tag }}
   </body>
 </html>
