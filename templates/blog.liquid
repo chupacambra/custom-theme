@@ -1,6 +1,6 @@
 <div class="container-xxl">
-  {% paginate blog.articles by 6 %}
-
+  {% paginate blogs.news.articles by 6 %}
+    {%- assign my_variable = paginate -%}  
     <h1 class="text-dark text-center my-5">{{ blog.title }}</h1>
     <div class="row g-4 text-center my-5">
 
@@ -20,6 +20,7 @@
         </div>
       {% endfor %}
     </div>
-    {{ paginate | default_pagination }}
+
+    {% render 'pagination', paginate: paginate %}
   {% endpaginate %}
 </div>

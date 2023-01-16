@@ -1,5 +1,6 @@
 <div class="container-xxl mb-5">
 {%  paginate collection.products by 12 %}  
+
   <h2 class="my-5"> {{ collection.title }} </h2>
 
 <div class="col-12 col-md-6 col-lg-4">
@@ -17,17 +18,14 @@
 </select>
 </div>
 
-
   <div class="row g-3 d-flex">
     {% for product in collection.products %}
       {% render 'product-item', product: product %}
     {% endfor %}
   </div>
 
-  <div class="my-5">
-    {{ paginate | default_pagination  }}
-  {% endpaginate %} 
-  </div>
+ {% render 'pagination', paginate: paginate %}
+  {% endpaginate %}
 </div>
 
 <script>
