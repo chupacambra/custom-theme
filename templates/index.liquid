@@ -1,4 +1,6 @@
-<div class="container-xxl">
+<div class="container-xxl mb-5 py-5">
+
+  {%  paginate collections.jewellery.products by 8 %}  
   <div class="row g-3">
     <h1 class="mt-5 mb-2">{{ collections.jewellery.title }}</h1>
     {% for product in collections.jewellery.products %}
@@ -6,4 +8,6 @@
     {% endfor %}
 
   </div>
+  {% render 'pagination', paginate: paginate %}
+{% endpaginate %}
 </div> 

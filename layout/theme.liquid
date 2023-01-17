@@ -4,13 +4,38 @@
     {{ "style.css" | asset_url | stylesheet_tag }}
     {{ "bootstrap.css" | asset_url | stylesheet_tag }}
     {{ 'footer-two.css' | asset_url | stylesheet_tag }}
+    {{ 'navbar.css' | asset_url | stylesheet_tag }}
+    {{ 'slider.css' | asset_url | stylesheet_tag }}
+
+    <link
+    rel="stylesheet"
+    href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css"
+    />
+    <link
+    rel="stylesheet"
+    href="https://unpkg.com/swiper@6.5.4/swiper-bundle.min.css"
+    />
 
   </head>
   <body>
-    {% render "header" %}
+    {% render "navbar" %}
     {{ content_for_layout }}
 
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+
+    <script
+    src="https://code.jquery.com/jquery-3.6.3.js"
+    integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
+    crossorigin="anonymous"
+    ></script>
+
     {{ "scripts.js" | asset_url | script_tag }}
+    {{ "navbar.js" | asset_url | script_tag }}
     {{ "bootstrap.js" | asset_url | script_tag }}
+
+    {{ "slider.js" | asset_url | script_tag }}
+
+  
   </body>
 </html>
+

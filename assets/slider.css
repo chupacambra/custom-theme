@@ -1,0 +1,18 @@
+.product-thumbs .swiper-slide img {
+  border: 2px solid transparent;
+  object-fit: cover;
+  cursor: pointer;
+}
+.product-thumbs .swiper-slide-active img {
+  border-color: #0d6efd;
+}
+.product-slider .swiper-button-next:after,
+.product-slider .swiper-button-prev:after {
+  font-size: 20px;
+  color: #0d6efd;
+  font-weight: bold;
+}
+
+.swiper-wrapper {
+  height: auto !important;
+}
