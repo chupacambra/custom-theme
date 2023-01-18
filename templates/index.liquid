@@ -1,9 +1,15 @@
-<div class="container-xxl mb-5 py-5">
+{{ 'hero.css' | asset_url | stylesheet_tag }}
+<div class="hero container-fluid" id="overlay">
+  <h1><span>SUPERBIKES</span></h1>
+  <h2><span>ONE BIKE FOREVER</span></h2>
+  <div class="btn btn-primary">GO TO SHOP</div>
+</div>
 
-  {%  paginate collections.jewellery.products by 8 %}  
+<div class="container-xxl my-5">
+
+  {%  paginate collections.bicycle.products by 8 %}  
   <div class="row g-3">
-    <h1 class="mt-5 mb-2">{{ collections.jewellery.title }}</h1>
-    {% for product in collections.jewellery.products %}
+    {% for product in collections.bicycle.products %}
    {% render 'product-item', product: product %}
     {% endfor %}
 

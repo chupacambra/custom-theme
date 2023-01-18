@@ -1,8 +1,9 @@
 
-<div class="container py-5">
+<div class="container-xxl py-5">
 
-    <div class="row">
+    <div class="row g-5 d-flex">
       <div class="col-lg-6 product-left mb-5 mb-lg-0">
+        <h1>{{ product.title }}</h1>
 				<div class="swiper-container product-slider mb-3">
             <div class="swiper-wrapper">
               {% for i in (1..5) %}
@@ -26,24 +27,35 @@
           </div>
         
       </div>
+      <div class="col-6">
+        <div class="row d-flex align-items-around">
+
+        {% form 'product', product %}
+            <div class="col-12">
+              <select class="form-select border border-primary" aria-label="Default select example" name="id" id="">
+                {% for variant in product.variants %}
+                  <option value="{{ variant.id }}">{{ variant.title }}</option>
+                {% endfor %}
+              </select>
+              <p class="lead text-start">
+                {{ product.description }}
+              </p>
+            </div>
+          
+            <div class="col-12">
+              <button type="submit" class="btn btn-primary w-50">Add to cart</button>
+            </div>
+           
+          </div>
+       
+      
+        {% endform %}
+      </div>
+      
     </div>
+    
   </div>
 
-  <div class="py-5 row d-flex w-50">
-  {% form 'product', product %}
-    <div class="col-6">
-      <select class="form-select " aria-label="Default select example" name="id" id="">
-        {% for variant in product.variants %}
-          <option value="{{ variant.id }}">{{ variant.title }}</option>
-        {% endfor %}
-      </select>
-    </div>
-    <div class="col-6">
-      <button type="submit">Add to cart</button>
-    </div>
-
-  {% endform %}
-</div>
 
 
 </div>

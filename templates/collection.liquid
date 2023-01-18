@@ -1,22 +1,27 @@
 <div class="container-xxl mb-5 py-5">
-{%  paginate collection.products by 9 %}  
+{%  paginate collection.products by 12 %}  
+<div class="row d-flex">
+  <div class="col-12 d-flex col-md-6 col-lg-6 justify-content-end">
+    <h1>OUR {{ collection.title }} </h1>
+  </div>
 
-  <h2 class="my-5"> {{ collection.title }} </h2>
-
-<div class="col-12 col-md-6 col-lg-4">
-  <label for="sort-by">Criteria</label>
+  <div class="col-12 col-md-6 col-lg-3 justify-content-start">
   {% comment %}
     
   {% endcomment %}
-  <select class="form-select form-select-lg mb-5" aria-label=".form-select-lg example" id="sort-by">
+  <select class="border border-primary form-select form-select-lg mb-5" aria-label=".form-select-lg example" id="sort-by">
   {% assign sort_by = collection.sort_by | default: collection.default_sort_by %}
   {% for option in collection.sort_options %}
     <option value="{{ option.value }}" {% if option.value == sort_by %}selected="selected"{% endif %}>
       {{ option.name }}
     </option>
   {% endfor %}
-</select>
+  </select>
+  </div>
+
 </div>
+
+
 
   <div class="row g-3 d-flex">
     {% for product in collection.products %}
