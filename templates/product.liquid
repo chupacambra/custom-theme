@@ -1,9 +1,14 @@
 
+<style>
+#henlo{
+  transform: rotate(90deg);
+}
+</style>
+
 <div class="container-xxl py-5">
 
     <div class="row g-5 d-flex">
       <div class="col-lg-6 product-left mb-5 mb-lg-0">
-        <h1>{{ product.title }}</h1>
 				<div class="swiper-container product-slider mb-3">
             <div class="swiper-wrapper">
               {% for i in (1..5) %}
@@ -27,28 +32,32 @@
           </div>
         
       </div>
-      <div class="col-6">
-        <div class="row d-flex align-items-around">
-
+      <div class="col-5 d-flex flex-column justify-content-between">
+        <div>
         {% form 'product', product %}
-            <div class="col-12">
-              <select class="form-select border border-primary" aria-label="Default select example" name="id" id="">
-                {% for variant in product.variants %}
-                  <option value="{{ variant.id }}">{{ variant.title }}</option>
-                {% endfor %}
-              </select>
+        <h1>{{ product.title }}</h1>
+        <p class="fs-3 fw-bold text-secondary pb-3">{{ product.price | money }}</p>
+        
+        <div class="d-flex flex-row mb-3 align-items-center">
+        <p class="fs-5 fw-bold text-secondary w-50 ">
+          Choose size 
+        </p>
+        <select class="form-select border border-primary" aria-label="Default select example" name="id" id="">
+          {% for variant in product.variants %}
+            <option value="{{ variant.id }}">{{ variant.title }}</option>
+          {% endfor %}
+        </select>
+        </div>
+
               <p class="lead text-start">
                 {{ product.description }}
               </p>
-            </div>
+        </div>
+
+        <div>
+          <button type="submit" class="btn btn-primary w-100">Add to cart</button>
+        </div>
           
-            <div class="col-12">
-              <button type="submit" class="btn btn-primary w-50">Add to cart</button>
-            </div>
-           
-          </div>
-       
-      
         {% endform %}
       </div>
       

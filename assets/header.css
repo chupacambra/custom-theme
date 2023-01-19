@@ -1,4 +1,6 @@
-@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Staatliches&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Rajdhani:wght@300;400;500;700&display=swap");
 :root {
   --color-black: hsl(0, 0%, 10%);
   --color-darks: hsl(0, 0%, 25%);
@@ -6,7 +8,7 @@
   --color-light: hsl(0, 0%, 95%);
   --color-white: hsl(0, 0%, 100%);
   --color-blue-100: hsl(217, 91%, 60%);
-  --color-blue-200: hsl(221, 83%, 53%);
+  --color-blue-200: hsl(216, 98%, 52%);
   --color-blue-300: hsl(224, 76%, 48%);
   --shadow-small: 0 1px 3px 0 rgba(0, 0, 0, 0.1),
     0 1px 2px 0 rgba(0, 0, 0, 0.06);
@@ -30,21 +32,11 @@
   text-rendering: optimizeLegibility;
 }
 
-html {
-  font-size: 100%;
-  box-sizing: inherit;
-  scroll-behavior: smooth;
-  height: -webkit-fill-available;
-}
-
-body {
-  font-family: "Rubik", ui-sans-serif, system-ui, -apple-system, sans-serif;
+.header {
+  font-family: "Rajdhani", sans-serif;
   font-size: 1rem;
-  font-weight: 400;
   line-height: 1.5;
   height: -webkit-fill-available;
-  color: var(--color-black);
-  background-color: var(--color-white);
 }
 
 main {
@@ -61,35 +53,12 @@ button {
   text-decoration: none;
 }
 
-img,
-video {
-  display: block;
-  max-width: 100%;
-  height: auto;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-
-img {
-  image-rendering: -webkit-optimize-contrast;
-  image-rendering: -moz-crisp-edges;
-  image-rendering: crisp-edges;
-}
-
 .section {
   margin: 0 auto;
   padding: 6rem 0 1rem;
 }
 
-.container {
-  max-width: 75rem;
-  height: auto;
-  margin: 0 auto;
-  padding: 0 1.25rem;
-}
-
 .brand {
-  font-family: inherit;
   font-size: 1.5rem;
   font-weight: 600;
   line-height: 1.5;
@@ -146,14 +115,14 @@ img {
 .menu-link {
   font-family: inherit;
   font-size: 1rem;
-  font-weight: 500;
+  font-weight: 700;
   line-height: 1.5;
   text-transform: uppercase;
-  color: var(--color-black);
+  color: var(--color-darks);
   transition: all 0.3s ease;
 }
 .menu-link:hover {
-  color: var(--color-blue-200);
+  color: var(--color-blue-100);
 }
 @media only screen and (min-width: 48rem) {
   .menu {
@@ -200,7 +169,7 @@ img {
   height: 2px;
   margin: 6px auto;
   transform: rotate(0deg);
-  background-color: var(--color-black);
+  background-color: #0d6efd;
   transition: all 0.3s ease-in-out;
 }
 @media only screen and (min-width: 48rem) {
@@ -275,4 +244,18 @@ img {
 .search-input::-webkit-search-decoration, .search-input::-webkit-search-cancel-button {
   display: none;
   visibility: hidden;
+}
+
+.cart-count {
+  position: relative;
+  bottom: 10px;
+  right: 7px;
+  border-radius: 50%;
+  background-color: var(--color-blue-100);
+  width: 16px;
+  height: 16px;
+  text-align: center;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
 }/*# sourceMappingURL=header.css.map */

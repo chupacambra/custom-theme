@@ -2,7 +2,7 @@
   <div class="card justify-content-end ">
     <img class="img-fluid" src="{{ product.featured_image | img_url: "2000x"}}">
     <div class="card-body d-flex flex-column justify-content-around text-center">
-      <h5 class="card-title ">{{ product.title }}</h5>
+      <p class="card-title fs-3">{{ product.title }}</p>
       <p class="card-text">{{ product.price | money }}</p>
       <h2>{{ index }}</h2>
       <a href="{{ product.url }}" class="btn btn-primary col-12 align-self-center w-auto">Go to Product</a>

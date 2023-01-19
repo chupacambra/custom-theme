@@ -1,67 +1,39 @@
-<nav class="navbar navbar-expand-lg navbar-dark text-white bg-primary logo">
-  <div class="container-xxl">
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarNavDropdown"
-      aria-controls="navbarNavDropdown"
-      aria-expanded="false"
-      aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse " id="navbarNavDropdown">
-      <ul class="navbar-nav d-flex align-items-center">
-        <!-- FOR LOOP START-->
-        <a class="navbar-brand" href="#">
-          <img
-            src="{{ "logo.png" | asset_url }}"
-            alt="Logo"
-            width="50"
-            class="d-inline-block align-text-top">
-        </a>
-        {% for link in linklists.custom-menu.links %}
-          {% if link.title == "COLLECTIONS" %}
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                href="#"
-                id="navbarDropdownMenuLink"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false">
-                CATALOGUE
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <!--COLLECTIONS FOR LOOP -->
-                {% for collection in collections %}
-                  <li>
-                    <a class="dropdown-item" href="{{ collection.url  }}">{{ collection.title }}</a>
-                  </li>
-                {% endfor %}
-              </ul>
-            </li>
-          {% else %}
-            <li class="nav-item">
-           s
-            </li>
-          {% endif %}
-        {% endfor %}
-      </ul>
+<header class="header" id="header">
+   <nav class="navbar container-xxl">
 
-      <form action="{{ routes.search_url }}" class="d-flex">
-        <input
-          class="form-control me-2"
-          type="text"
-          placeholder="Search"
-          name="q"
-          value="{{ search.terms | escape }}">
-        <button
-          class="btn btn-outline-light"
-          type="submit"
-          value="Search">Search</button>
-      </form>
+   <a style="font-size: 30px;" href="google.com" class="brand" >
+      <span><i class="bx bx-cycling text-primary "></i></span>
+      SUPERBIKES
+   </a>
 
-    </div>
-  </div>
-</nav>
+      <div class="burger" id="burger">
+         <span class="burger-line"></span>
+         <span class="burger-line"></span>
+         <span class="burger-line"></span>
+      </div>
+      <span class="overlay"></span>
+      <div class="menu" id="menu">
+      
+         <ul class="menu-inner">
+            {% for link in linklists.custom-menu.links %}
+            <li class="menu-item">   <a class="menu-link" href="{{ link.url }}">{{ link.title }}</a></li>
+         {% endfor %}
+         
+         </ul>
+      </div>
+      <span><i class="bx bx-search search-toggle text-primary"></i></span>
+      <i class="bx bx-cart search-toggle text-primary"></i>
+         
+         {% if cart.item_count > 0 %}
+         <span class="cart-count"> {{ cart.item_count }} </span>            
+         {% endif %}
+
+      </span>
+      <div class="search-block">
+         <form class="search-form">       
+            <span><i class="bx bx-arrow-back search-cancel text-primary"></i></span>
+            <input type="search" name="search" class="search-input" placeholder="Search here...">
+         </form>
+      </div>
+   </nav>
+</header>

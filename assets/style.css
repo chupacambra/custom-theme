@@ -1,5 +1,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Rajdhani:wght@300;400;500;700&display=swap');
+
+:root {
+  --color-black: hsl(0, 0%, 10%);
+  --color-darks: hsl(0, 0%, 25%);
+  --color-greys: hsl(0, 0%, 60%);
+  --color-light: hsl(0, 0%, 95%);
+  --color-white: hsl(0, 0%, 100%);
+  --color-blue-100: hsl(217, 91%, 60%);
+  --color-blue-200: hsl(216, 98%, 52%);
+  --color-blue-300: hsl(224, 76%, 48%);
+  --shadow-small: 0 1px 3px 0 rgba(0, 0, 0, 0.1),
+    0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --shadow-medium: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-large: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+html {
+  font-size: 100%;
+  box-sizing: inherit;
+  scroll-behavior: smooth;
+  height: -webkit-fill-available;
+}
 
 body {
   padding-top: 64px;
@@ -9,5 +34,46 @@ body {
 h1 {
   color: #0d6efd;
   font-family: 'Staatliches', cursive;
+  font-weight: 700;
   font-size: 60px;
+}
+
+h2 {
+  color: #0d6efd;
+  font-family: 'Staatliches', cursive;
+  font-weight: 700;
+  font-size: 60px;
+}
+
+p {
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+}
+
+.font-regular {
+  font-family: 'Staatliches', cursive;
+}
+
+.btn {
+  font-family: 'Staatliches', cursive;
+}
+
+.blue {
+  color: var(--color-blue-200);
+}
+
+.blue-light {
+  color: var(--color-blue-100);
+}
+
+.blue-dark {
+  color: var(--color-blue-300);
+}
+
+.grey-dark {
+  color: var(--color-darks);
+}
+
+.grey-light {
+  color: var(--color-greys);
 }

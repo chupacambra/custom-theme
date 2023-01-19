@@ -1,29 +1,93 @@
+<style>
+  input[type="number"] {
+  -webkit-appearance: textfield;
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
+.number-input {
+  border: 2px solid #ddd;
+  display: inline-flex;
+}
+
+.number-input,
+.number-input * {
+  box-sizing: border-box;
+}
+
+.number-input button {
+  outline:none;
+  -webkit-appearance: none;
+  background-color: transparent;
+  border: none;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  cursor: pointer;
+  margin: 0;
+  position: relative;
+}
+</style>
+
+
 {% form "cart", cart %}
 
   <div class="container-xxl">
-    <h1 class="mt-5 mb-2">Cart</h1>
-    <h2 class="text-primary">Item Count: {{ cart.item_count }}</h2>
+    <h1 class="mt-5 mb-2 blue-light">Cart ({{ cart.item_count }})</h1>
 
-    <div class="row">
       {% if cart.empty? %}
         <h2 class="text-primary">Sorry your cart is empty</h2>
       {% else %}
-        {% for item in cart.items %}
-          <div class="col-3">
-            <img class="img-fluid" src="{{ item.image | img_url: '2400x2400' }}">
-            <h2>{{ item.title }}</h2>
-            <p>{{ item.final_line_price | money }}</p>
-            <input value="{{ item.quantity }}" name="updates[]">
-            <a href="{{ item.url_to_remove }}">Remove All</a>
-            <hr>
 
-          </div>
+        <div class="row d-flex">
+        {% for item in cart.items %}
+            
+            <div class="col-8 d-flex flex-row border-top py-3">
+              <hr class="text-primary">
+              <div class="col-4 d-flex d-column align-items-end">
+                <img class="img-fluid" src="{{ item.image | img_url: '2400x2400' }}">
+               </div>
+               <div class="col-4 text-start ms-2">
+                <h2 class="" >{{ item.title }}</h2>
+                <h3> {{ item.variant_id }} </h3>
+                
+                <input value="{{ item.quantity }}" name="updates[]">
+                <div class="col-12 d-flex flex-row justify-content-between">
+                <p  class="grey-dark fs-4" >QTY: {{ item.quantity }}</p>
+                <p class="grey-dark fs-4" >
+
+                  <i data-itemId="{{ item.variant_id }}" data-itemQnt="{{ item.quantity }}" class='bx bx-plus-circle pe-2' ></i>
+                  <i data-itemId="{{ item.variant_id }}" data-itemQnt="{{ item.quantity }}" class='bx bx-minus-circle ps-2' ></i>
+                  </p>                  
+                </div>
+
+                <p class="fs-5 fw-bold grey-dark mb-0">Item Price:</p>
+                <p class="grey-dark fs-4" >{{ item.price | money }}</p>
+
+                <a href="{{ item.url_to_remove }}">Remove All</a>
+
+               </div>
+               <div class="col-4 d-flex justify-content-end">
+                <i class='bx bx-trash fs-2 grey-dark p-1'></i>
+               </div>
+            </div>   
 
         {% endfor %}
-        <hr>
+
+        <div class="col-4 ">
+          <div class="btn btn-primary font-regular">
+            Go to Cart
+          </div>
+        </div>
+        </div>
 
         <p>Total: {{ cart.total_price | money }}</p>
-      </div>
       <button
         class="btn btn-primary"
         name="update"
@@ -36,6 +100,53 @@
         type="submit">Checkout
       </button>
     {% endif %}
-
   </div>
 {% endform %}
+</div>
+
+
+<script>
+
+//Const
+const btnMinus = document.querySelectorAll(".bx-minus-circle")
+const btnPlus = document.querySelectorAll(".bx-plus-circle")
+
+//Event Listeners
+btnMinus.forEach(btn => btn.addEventListener("click", (e)=>{
+  const itemId = e.target.getAttribute('data-itemId');
+  const itemQuantity = e.target.getAttribute('data-itemQnt');
+ }))
+
+btnPlus.forEach(btn => btn.addEventListener("click", (e)=>{
+  const itemId = parseInt(e.target.getAttribute('data-itemId')) ;
+  const itemQuantity =parseInt(e.target.getAttribute('data-itemQnt'));
+
+  let formData = {
+ 'items': [{
+  'id': itemId,
+  'quantity': itemQuantity
+  }]
+};
+
+{% comment %}
+fetch(window.Shopify.routes.root + 'cart/add.js', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify(formData)
+})
+.then(response => {
+  return response.json();
+})
+.catch((error) => {
+  console.error('Error:', error);
+});
+{% endcomment %}
+
+ 
+
+  }))
+
+</script>
+
