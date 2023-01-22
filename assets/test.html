@@ -1,0 +1,28 @@
+<div class="col-8 d-flex flex-row border-top py-3" ">
+<hr class="text-primary" />
+<div class="col-4 d-flex d-column align-items-end">
+  <img class="img-fluid" src="{{ item.image | img_url: '2400x2400' }}" />
+</div>
+<div class="col-4 text-start ms-2">
+  <div class="cart-quantity-selector fs-2" data-key="{{ item.key }}">
+    <i
+      data-itemId="{{ item.variant_id }}"
+      data-itemQnt="{{ item.quantity }}"
+      class="sign bx bx-plus-circle pe-2 text-primary plus"
+    ></i>
+    <input
+      disabled
+      class="d-none"
+      id="henlo"
+      name="updates[]"
+      type="text"
+      value="{{ item.quantity }}"
+    />
+
+    <i
+      data-itemId="{{ item.variant_id }}"
+      data-itemQnt="{{ item.quantity }}"
+      class="sign bx bx-minus-circle ps-2 text-primary minus"
+    ></i>
+  </div>
+</div>

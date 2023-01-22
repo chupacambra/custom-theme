@@ -77,3 +77,23 @@ p {
 .grey-light {
   color: var(--color-greys);
 }
+
+.bx-plus-circle,
+.bx-minus-circle {
+  cursor: pointer;
+}
+
+.card-title {
+  color: var(--color-darks);
+  font-family: 'Staatliches', cursive;
+  color: var(--color-blue-200);
+  color: var(--color-darks);
+}
+
+.checkout-card {
+  background-color: var(--color-light);
+}
+
+.rotate {
+  transform: rotate(90deg);
+}

@@ -1,11 +1,23 @@
 {{ 'hero.css' | asset_url | stylesheet_tag }}
-<div class="hero container-fluid" id="overlay">
-  <h1><span>SUPERBIKES</span></h1>
-  <h2><span>ONE BIKE FOREVER</span></h2>
-  <div class="btn btn-primary">GO TO SHOP</div>
-</div>
+{% comment %}
+
+
+{% endcomment %}
 
 <div class="container-xxl my-5">
+  <div class="row">
+    <div class="col-4">
+      <img class="img-fluid hero-image" src="{{ 'hero_bike.tiff' | asset_url }}" /> 
+    </div>
+    <div class="col-2 d-flex flex-column">
+      <h2 class="rotate">ONE BIKE FOREVER</h2>
+    </div>
+    <div class="col-6 hero ">
+      <h1><span>SUPERBIKES</span></h1>
+      <div class="btn btn-primary">GO TO SHOP</div>
+    </div>
+  </div>
+
 
   {%  paginate collections.bicycle.products by 8 %}  
   <div class="row g-3">
