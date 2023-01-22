@@ -1,16 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Staatliches&display=swap");
-.hero {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 10vh 0;
-}
 .hero h1 {
   font-size: 12vh;
   color: white;
   padding-bottom: 2vh;
-  margin-top: 10vh;
   font-family: "Staatliches", cursive;
   padding: 0;
   margin: 0;
